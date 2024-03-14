@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animation Loading */
+.loading{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto;
+    border: 10px solid pink;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+
+    /* Sử dụng animation:
+    + animation-name: tên animation *
+    + animation-duration: xác định thời trong 1 chu kỳ (s) *
+    + animation-delay: xác định độ trễ của animation
+    + animation-iteration-count: xác định số vòng animation chạy *
+    + animation-direction: chỉ định hướng animation
+    + animation-timing-function: xác định chuyển động animation *
+    + animation-fill-mode: xác định trạng thái cuối cùng của animation
+    */
+    animation: loading 1s infinite linear ;
+}
+
+/* Cú pháp khai báo animation */
+@keyframes loading{
+    /* from(có thể ghi là 0%): từ đâu --- to(có thể ghi là 100%): tới đâu */
+
+    /* from{
+        transform: rotate(0deg);
+    }
+     
+    to{
+        transform: rotate(360deg);
+    } */
+
+    0%{
+        transform: rotate(0deg);
+    }
+     
+    50%{
+        border-color: yellow;
+        border-left: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Animation rung */
+.box-1{
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 25px;
+    background-color: red;
+
+
+    -webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: flip-horizontal-bottom 0.4s infinite cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    
+}
+
+/* Khai báo animation */
+ @-webkit-keyframes flip-horizontal-bottom {
+    0% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+    }
+    100% {
+      -webkit-transform: rotateX(-180deg);
+              transform: rotateX(-180deg);
+    }
+  }
+  @keyframes flip-horizontal-bottom {
+    0% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+    }
+    100% {
+      -webkit-transform: rotateX(-180deg);
+              transform: rotateX(-180deg);
+    }
+  }
+
+
+/* Animation heart */
+.container{
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgb(219, 143, 157);
+
+    position: relative;
+}
+
+.container div{
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    animation: heart 1s infinite linear;
+}
+
+/* cach 1: 
++ su dung last-child
++ su dung first-child
+* hay dung  */
+
+.container div:first-child{
+    background-color: white;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    border-radius: 50% 0 0 50%;
+}
+
+.container div:last-child{
+    background-color: white;
+    top: 37.5px;
+    left: 37.5px;
+    transform: rotate(45deg);
+}
+
+/* cach 2: su dung nth-child(x)
+x la so phan tu muon style */
+.container div:nth-child(2){
+    background-color: white;
+    top: 0;
+    left: 75px;
+    transform: rotate(-45deg);
+    border-radius: 0 50% 50% 0;
+}
+ 
+
+/* Khai bao */
+@keyframes heart{
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(2);
+    }
+}
